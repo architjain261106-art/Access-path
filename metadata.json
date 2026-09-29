@@ -1,0 +1,6 @@
+{
+  "name": "AccessPath - Campus Navigation & Accessible Routing",
+  "description": "Interactive Google Maps-style campus navigation system featuring accessible step-free paths, lit night routes, hazard alerts, and real-time pathfinding.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+/* Leaflet Customizations for Google Maps aesthetic */
+.leaflet-container {
+  font-family: inherit;
+  width: 100%;
+  height: 100%;
+  background-color: #f1f5f9;
+}
+
+.custom-map-icon,
+.custom-hazard-icon {
+  background: transparent !important;
+  border: none !important;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+  padding: 0 !important;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  line-height: 1.5;
+}
+
+.leaflet-popup-tip {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Tabular figures for time and meters */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ========================================================================= */
+/* Animated & Pulsing Route Polyline Effects                                */
+/* ========================================================================= */
+
+@keyframes routeAuraPulse {
+  0%, 100% {
+    stroke-width: 12px;
+    opacity: 0.35;
+    filter: drop-shadow(0 0 3px currentColor);
+  }
+  50% {
+    stroke-width: 18px;
+    opacity: 0.75;
+    filter: drop-shadow(0 0 9px currentColor);
+  }
+}
+
+@keyframes routeDashFlow {
+  from {
+    stroke-dashoffset: 48;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.route-pulsing-aura {
+  animation: routeAuraPulse 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  pointer-events: none;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.route-casing {
+  pointer-events: none;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.route-main-line {
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  transition: stroke 0.3s ease;
+}
+
+.route-animated-flow {
+  animation: routeDashFlow 1.4s linear infinite;
+  pointer-events: none;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .route-pulsing-aura,
+  .route-animated-flow {
+    animation: none !important;
+  }
+}
+
